@@ -16,12 +16,15 @@ namespace TestDesignerProject
     {
 
         Tests tests = new Tests();
-
+        Test test = null;
         public TestForm()
         {
             InitializeComponent();
             textBoxQ2.Enabled = false;
             textBoxQ3.Enabled = false;
+
+            Serializer serializer = new Serializer();
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,21 +54,12 @@ namespace TestDesignerProject
             textBoxTrueAnswer.Text = "";
         }
 
-        private void buttonAddTest_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonBackToTests_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void buttonNewTest_Click(object sender, EventArgs e)
         {
             if (textBoxTestTitle.Text != "")
             {
-                Test test = new Test();
+                test = new Test();
 
                 test.TestName = textBoxTestTitle.Text;// Присваиваем тесту имя из textBox
 
@@ -77,6 +71,40 @@ namespace TestDesignerProject
             {
                 MessageBox.Show("TextBox is empty!", "Warning!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void buttonAddQuestion_Click(object sender, EventArgs e)
+        {
+            if (test != null && textBoxQuestion.Text != "" && textBoxTrueAnswer.Text != "" && textBoxQ1.Text != "")
+            {
+                QuestionBlock questionBlock = new QuestionBlock();
+
+                questionBlock.Question = textBoxQuestion.Text;
+                questionBlock.TrueAnswer = textBoxTrueAnswer.Text;
+                questionBlock.DifficultLevel = int.Parse(comboBoxGrade.Text);
+                questionBlock.Q1 = textBoxQ1.Text;
+
+                if(textBoxQ2.Enabled)
+                    questionBlock.Q2 = textBoxQ2.Text;
+
+                if (textBoxQ3.Enabled)
+                    questionBlock.Q3 = textBoxQ3.Text;
+
+                test.QuestionBlocks.Add(questionBlock);
+            }
+            else
+            {
+                MessageBox.Show("Test class is null!", "Warning!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void listBoxTests_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var t = listBoxTests.SelectedItem as Test; // Преобразуем елемент в класс
+
+            test = t; // инициализируем класс test
+
+            textBoxTestTitle.Text = test.TestName; // В текстовом поле всегда будет отображаться название текущего теста
         }
     }
 }
