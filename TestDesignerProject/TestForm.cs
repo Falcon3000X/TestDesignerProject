@@ -21,12 +21,12 @@ namespace TestDesignerProject
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox1.SelectedItem.ToString()=="2")
+            if(comboBoxSolutions1.SelectedItem.ToString()=="2")
             {
                 textBoxQ2.Enabled = true;
             }
 
-            if (comboBox1.SelectedItem.ToString() == "3")
+            if (comboBoxSolutions1.SelectedItem.ToString() == "3")
             {
                 textBoxQ3.Enabled = true;
             }

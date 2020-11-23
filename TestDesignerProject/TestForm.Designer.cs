@@ -34,7 +34,7 @@ namespace TestDesignerProject
             this.buttonAddTest = new System.Windows.Forms.Button();
             this.buttonBackToTests = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSolutions1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxTrueAnswer = new System.Windows.Forms.TextBox();
@@ -47,6 +47,8 @@ namespace TestDesignerProject
             this.textBoxQ2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxQ3 = new System.Windows.Forms.TextBox();
+            this.comboBoxGrade = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,13 +92,15 @@ namespace TestDesignerProject
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBoxGrade);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.textBoxQ3);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.textBoxQ2);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.textBoxQ1);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.comboBoxSolutions1);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBoxTrueAnswer);
@@ -109,19 +113,19 @@ namespace TestDesignerProject
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Q";
             // 
-            // comboBox1
+            // comboBoxSolutions1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxSolutions1.FormattingEnabled = true;
+            this.comboBoxSolutions1.Items.AddRange(new object[] {
             "1",
             "2",
             "3"});
-            this.comboBox1.Location = new System.Drawing.Point(75, 109);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 9;
-            this.comboBox1.Text = "1";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxSolutions1.Location = new System.Drawing.Point(75, 109);
+            this.comboBoxSolutions1.Name = "comboBoxSolutions1";
+            this.comboBoxSolutions1.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxSolutions1.TabIndex = 9;
+            this.comboBoxSolutions1.Text = "1";
+            this.comboBoxSolutions1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -178,7 +182,7 @@ namespace TestDesignerProject
             // 
             // textBoxQ1
             // 
-            this.textBoxQ1.Location = new System.Drawing.Point(75, 166);
+            this.textBoxQ1.Location = new System.Drawing.Point(75, 175);
             this.textBoxQ1.Multiline = true;
             this.textBoxQ1.Name = "textBoxQ1";
             this.textBoxQ1.Size = new System.Drawing.Size(188, 36);
@@ -187,7 +191,7 @@ namespace TestDesignerProject
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 169);
+            this.label5.Location = new System.Drawing.Point(18, 178);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(24, 13);
             this.label5.TabIndex = 11;
@@ -196,7 +200,7 @@ namespace TestDesignerProject
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 211);
+            this.label6.Location = new System.Drawing.Point(18, 220);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(24, 13);
             this.label6.TabIndex = 13;
@@ -204,7 +208,7 @@ namespace TestDesignerProject
             // 
             // textBoxQ2
             // 
-            this.textBoxQ2.Location = new System.Drawing.Point(75, 208);
+            this.textBoxQ2.Location = new System.Drawing.Point(75, 217);
             this.textBoxQ2.Multiline = true;
             this.textBoxQ2.Name = "textBoxQ2";
             this.textBoxQ2.Size = new System.Drawing.Size(188, 36);
@@ -213,7 +217,7 @@ namespace TestDesignerProject
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 253);
+            this.label7.Location = new System.Drawing.Point(18, 262);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(24, 13);
             this.label7.TabIndex = 15;
@@ -221,11 +225,33 @@ namespace TestDesignerProject
             // 
             // textBoxQ3
             // 
-            this.textBoxQ3.Location = new System.Drawing.Point(75, 250);
+            this.textBoxQ3.Location = new System.Drawing.Point(75, 259);
             this.textBoxQ3.Multiline = true;
             this.textBoxQ3.Name = "textBoxQ3";
             this.textBoxQ3.Size = new System.Drawing.Size(188, 36);
             this.textBoxQ3.TabIndex = 14;
+            // 
+            // comboBoxGrade
+            // 
+            this.comboBoxGrade.FormattingEnabled = true;
+            this.comboBoxGrade.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.comboBoxGrade.Location = new System.Drawing.Point(75, 139);
+            this.comboBoxGrade.Name = "comboBoxGrade";
+            this.comboBoxGrade.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxGrade.TabIndex = 17;
+            this.comboBoxGrade.Text = "1";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 139);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(39, 13);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Grade:";
             // 
             // TestForm
             // 
@@ -259,7 +285,7 @@ namespace TestDesignerProject
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxTrueAnswer;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxSolutions1;
         private System.Windows.Forms.Button buttonNewQuestion;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxQ3;
@@ -267,5 +293,7 @@ namespace TestDesignerProject
         private System.Windows.Forms.TextBox textBoxQ2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxQ1;
+        private System.Windows.Forms.ComboBox comboBoxGrade;
+        private System.Windows.Forms.Label label8;
     }
 }
