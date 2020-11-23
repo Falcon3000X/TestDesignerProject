@@ -37,10 +37,16 @@ namespace TestDesignerProject
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxTrueAnswer = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxQuestion = new System.Windows.Forms.TextBox();
             this.buttonNewQuestion = new System.Windows.Forms.Button();
+            this.textBoxQ1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxQ2 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxQ3 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,6 +75,7 @@ namespace TestDesignerProject
             this.buttonAddTest.TabIndex = 2;
             this.buttonAddTest.Text = "Add question";
             this.buttonAddTest.UseVisualStyleBackColor = true;
+            this.buttonAddTest.Click += new System.EventHandler(this.buttonAddTest_Click);
             // 
             // buttonBackToTests
             // 
@@ -79,18 +86,25 @@ namespace TestDesignerProject
             this.buttonBackToTests.TabIndex = 3;
             this.buttonBackToTests.Text = "Back to tests";
             this.buttonBackToTests.UseVisualStyleBackColor = true;
+            this.buttonBackToTests.Click += new System.EventHandler(this.buttonBackToTests_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.textBoxQ3);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.textBoxQ2);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.textBoxQ1);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textBoxTrueAnswer);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBoxQuestion);
             this.groupBox1.Location = new System.Drawing.Point(242, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(384, 290);
+            this.groupBox1.Size = new System.Drawing.Size(384, 302);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Q";
@@ -106,6 +120,8 @@ namespace TestDesignerProject
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 9;
+            this.comboBox1.Text = "1";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -125,12 +141,12 @@ namespace TestDesignerProject
             this.label3.TabIndex = 7;
             this.label3.Text = "Answer:";
             // 
-            // textBox1
+            // textBoxTrueAnswer
             // 
-            this.textBox1.Location = new System.Drawing.Point(75, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 20);
-            this.textBox1.TabIndex = 6;
+            this.textBoxTrueAnswer.Location = new System.Drawing.Point(75, 66);
+            this.textBoxTrueAnswer.Name = "textBoxTrueAnswer";
+            this.textBoxTrueAnswer.Size = new System.Drawing.Size(188, 20);
+            this.textBoxTrueAnswer.TabIndex = 6;
             // 
             // label2
             // 
@@ -158,6 +174,58 @@ namespace TestDesignerProject
             this.buttonNewQuestion.TabIndex = 5;
             this.buttonNewQuestion.Text = "New question";
             this.buttonNewQuestion.UseVisualStyleBackColor = true;
+            this.buttonNewQuestion.Click += new System.EventHandler(this.buttonNewQuestion_Click);
+            // 
+            // textBoxQ1
+            // 
+            this.textBoxQ1.Location = new System.Drawing.Point(75, 166);
+            this.textBoxQ1.Multiline = true;
+            this.textBoxQ1.Name = "textBoxQ1";
+            this.textBoxQ1.Size = new System.Drawing.Size(188, 36);
+            this.textBoxQ1.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 169);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(24, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Q1:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(18, 211);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(24, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Q2:";
+            // 
+            // textBoxQ2
+            // 
+            this.textBoxQ2.Location = new System.Drawing.Point(75, 208);
+            this.textBoxQ2.Multiline = true;
+            this.textBoxQ2.Name = "textBoxQ2";
+            this.textBoxQ2.Size = new System.Drawing.Size(188, 36);
+            this.textBoxQ2.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(18, 253);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(24, 13);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Q3:";
+            // 
+            // textBoxQ3
+            // 
+            this.textBoxQ3.Location = new System.Drawing.Point(75, 250);
+            this.textBoxQ3.Multiline = true;
+            this.textBoxQ3.Name = "textBoxQ3";
+            this.textBoxQ3.Size = new System.Drawing.Size(188, 36);
+            this.textBoxQ3.TabIndex = 14;
             // 
             // TestForm
             // 
@@ -189,9 +257,15 @@ namespace TestDesignerProject
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxQuestion;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxTrueAnswer;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button buttonNewQuestion;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxQ3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBoxQ2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxQ1;
     }
 }
