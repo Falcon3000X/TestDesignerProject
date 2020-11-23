@@ -32,7 +32,6 @@ namespace TestDesignerProject
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxTestTitle = new System.Windows.Forms.TextBox();
             this.buttonAddTest = new System.Windows.Forms.Button();
-            this.buttonBackToTests = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxSolutions1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,13 +48,18 @@ namespace TestDesignerProject
             this.textBoxQ3 = new System.Windows.Forms.TextBox();
             this.comboBoxGrade = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.listBoxTests = new System.Windows.Forms.ListBox();
+            this.listBoxQuestions = new System.Windows.Forms.ListBox();
+            this.buttonNewTest = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 34);
+            this.label1.Location = new System.Drawing.Point(13, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 0;
@@ -63,9 +67,9 @@ namespace TestDesignerProject
             // 
             // textBoxTestTitle
             // 
-            this.textBoxTestTitle.Location = new System.Drawing.Point(67, 31);
+            this.textBoxTestTitle.Location = new System.Drawing.Point(69, 19);
             this.textBoxTestTitle.Name = "textBoxTestTitle";
-            this.textBoxTestTitle.Size = new System.Drawing.Size(138, 20);
+            this.textBoxTestTitle.Size = new System.Drawing.Size(137, 20);
             this.textBoxTestTitle.TabIndex = 1;
             // 
             // buttonAddTest
@@ -78,17 +82,6 @@ namespace TestDesignerProject
             this.buttonAddTest.Text = "Add question";
             this.buttonAddTest.UseVisualStyleBackColor = true;
             this.buttonAddTest.Click += new System.EventHandler(this.buttonAddTest_Click);
-            // 
-            // buttonBackToTests
-            // 
-            this.buttonBackToTests.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBackToTests.Location = new System.Drawing.Point(12, 320);
-            this.buttonBackToTests.Name = "buttonBackToTests";
-            this.buttonBackToTests.Size = new System.Drawing.Size(97, 23);
-            this.buttonBackToTests.TabIndex = 3;
-            this.buttonBackToTests.Text = "Back to tests";
-            this.buttonBackToTests.UseVisualStyleBackColor = true;
-            this.buttonBackToTests.Click += new System.EventHandler(this.buttonBackToTests_Click);
             // 
             // groupBox1
             // 
@@ -172,7 +165,7 @@ namespace TestDesignerProject
             // buttonNewQuestion
             // 
             this.buttonNewQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNewQuestion.Location = new System.Drawing.Point(67, 93);
+            this.buttonNewQuestion.Location = new System.Drawing.Point(108, 291);
             this.buttonNewQuestion.Name = "buttonNewQuestion";
             this.buttonNewQuestion.Size = new System.Drawing.Size(97, 23);
             this.buttonNewQuestion.TabIndex = 5;
@@ -253,23 +246,63 @@ namespace TestDesignerProject
             this.label8.TabIndex = 16;
             this.label8.Text = "Grade:";
             // 
+            // listBoxTests
+            // 
+            this.listBoxTests.FormattingEnabled = true;
+            this.listBoxTests.Location = new System.Drawing.Point(12, 121);
+            this.listBoxTests.Name = "listBoxTests";
+            this.listBoxTests.Size = new System.Drawing.Size(160, 56);
+            this.listBoxTests.TabIndex = 6;
+            // 
+            // listBoxQuestions
+            // 
+            this.listBoxQuestions.FormattingEnabled = true;
+            this.listBoxQuestions.Location = new System.Drawing.Point(12, 190);
+            this.listBoxQuestions.Name = "listBoxQuestions";
+            this.listBoxQuestions.Size = new System.Drawing.Size(160, 56);
+            this.listBoxQuestions.TabIndex = 7;
+            // 
+            // buttonNewTest
+            // 
+            this.buttonNewTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNewTest.Location = new System.Drawing.Point(109, 66);
+            this.buttonNewTest.Name = "buttonNewTest";
+            this.buttonNewTest.Size = new System.Drawing.Size(97, 23);
+            this.buttonNewTest.TabIndex = 8;
+            this.buttonNewTest.Text = "New test";
+            this.buttonNewTest.UseVisualStyleBackColor = true;
+            this.buttonNewTest.Click += new System.EventHandler(this.buttonNewTest_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.buttonNewTest);
+            this.groupBox2.Controls.Add(this.textBoxTestTitle);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(212, 100);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Test";
+            // 
             // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 355);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.listBoxQuestions);
+            this.Controls.Add(this.listBoxTests);
             this.Controls.Add(this.buttonNewQuestion);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.buttonBackToTests);
             this.Controls.Add(this.buttonAddTest);
-            this.Controls.Add(this.textBoxTestTitle);
-            this.Controls.Add(this.label1);
             this.Name = "TestForm";
             this.Text = "Test";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -278,7 +311,6 @@ namespace TestDesignerProject
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxTestTitle;
         private System.Windows.Forms.Button buttonAddTest;
-        private System.Windows.Forms.Button buttonBackToTests;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxQuestion;
@@ -295,5 +327,9 @@ namespace TestDesignerProject
         private System.Windows.Forms.TextBox textBoxQ1;
         private System.Windows.Forms.ComboBox comboBoxGrade;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ListBox listBoxTests;
+        private System.Windows.Forms.ListBox listBoxQuestions;
+        private System.Windows.Forms.Button buttonNewTest;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

@@ -12,6 +12,8 @@ namespace TestDesignerProject
 {
     public partial class TestForm : Form
     {
+        Tests tests = new Tests();
+
         public TestForm()
         {
             InitializeComponent();
@@ -54,6 +56,14 @@ namespace TestDesignerProject
         private void buttonBackToTests_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonNewTest_Click(object sender, EventArgs e)
+        {
+            if(textBoxTestTitle.Text!="")
+            {
+
+            }
         }
     }
 }
