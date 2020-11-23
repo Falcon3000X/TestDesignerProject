@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TestDesignerProject;
 
 namespace TestDesignerProject
 {
     public partial class TestForm : Form
     {
-        Tests tests = new Tests();
 
+        Tests tests = new Tests();
         public TestForm()
         {
             InitializeComponent();
@@ -62,7 +63,7 @@ namespace TestDesignerProject
         {
             if(textBoxTestTitle.Text!="")
             {
-
+              
             }
         }
     }
