@@ -10,20 +10,11 @@ using System.Windows.Forms;
 
 namespace TestDesignerProject
 {
-    public partial class Form1 : Form
+    public partial class TestForm : Form
     {
-        public Form1()
+        public TestForm()
         {
             InitializeComponent();
-        }
-
-        private void buttonAddTest_Click(object sender, EventArgs e)
-        {
-            TestForm testForm = new TestForm();
-
-            if (testForm.ShowDialog() == DialogResult.OK)
-                testForm.Close();
-           
         }
     }
 }
