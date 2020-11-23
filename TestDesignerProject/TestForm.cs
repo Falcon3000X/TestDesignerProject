@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestDesignerProject;
+using Xml2CSharp;
 
 namespace TestDesignerProject
 {
@@ -15,6 +16,7 @@ namespace TestDesignerProject
     {
 
         Tests tests = new Tests();
+
         public TestForm()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace TestDesignerProject
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBoxSolutions1.SelectedItem.ToString()=="2")
+            if (comboBoxSolutions1.SelectedItem.ToString() == "2")
             {
                 textBoxQ2.Enabled = true;
             }
@@ -61,9 +63,19 @@ namespace TestDesignerProject
 
         private void buttonNewTest_Click(object sender, EventArgs e)
         {
-            if(textBoxTestTitle.Text!="")
+            if (textBoxTestTitle.Text != "")
             {
-              
+                Test test = new Test();
+
+                test.TestName = textBoxTestTitle.Text;// Присваиваем тесту имя из textBox
+
+                tests.TestsList.Add(test);// Добавляем этот тест в список всех тестов.
+
+                listBoxTests.Items.Add(test.TestName);// Добавляем название теста в список тестов в listBox
+            }
+            else // Если же textBox пуст, то показываем ошибку ввода
+            {
+                MessageBox.Show("TextBox is empty!", "Warning!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
