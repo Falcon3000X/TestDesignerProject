@@ -16,5 +16,10 @@ namespace ServerSideProject
         {
             InitializeComponent();
         }
+
+        private void buttonAddUser_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
