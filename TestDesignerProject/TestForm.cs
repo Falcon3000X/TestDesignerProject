@@ -23,6 +23,7 @@ namespace TestDesignerProject
         Test test = null;
 
         XmlSerializer formatter = new XmlSerializer(typeof(Tests));// Форматтер для десериализации
+        XmlSerializer formatterTest = new XmlSerializer(typeof(Test));// Форматтер для десериализации
 
 
         public TestForm()
@@ -33,17 +34,36 @@ namespace TestDesignerProject
             textBoxQ3.Enabled = false;
 
             tests.TestsList = new List<Test>();// Выделение памяти
+            test = new Test();
+            test.QuestionBlocks = new List<QuestionBlock>();
 
+            string[] dirs = Directory.GetFiles(@"C:\Users\marik\Desktop\TestDesignerProject\TestDesignerProject\bin\Debug", "*.xml");
 
-            using (FileStream fs = new FileStream(@"Tests.xml", FileMode.OpenOrCreate))// Запись елементов из файла в программу через десериализацию
+            foreach (var i in dirs)
             {
-                tests = (Tests)formatter.Deserialize(fs);// Десериализация
-
-                foreach (Test t in tests.TestsList)
+                using (FileStream fs = new FileStream(i, FileMode.OpenOrCreate))
                 {
-                    listBoxTests.Items.Add(t);// Вывод данных в лист бокс
+                    test = (Test)formatterTest.Deserialize(fs);
+                    tests.TestsList.Add(test);
+                    listBoxTests.Items.Add(test);
                 }
             }
+
+
+
+
+
+
+
+            //using (FileStream fs = new FileStream(@"Tests.xml", FileMode.OpenOrCreate))// Запись елементов из файла в программу через десериализацию
+            //{
+            //    tests = (Tests)formatter.Deserialize(fs);// Десериализация
+
+            //    foreach (Test t in tests.TestsList)
+            //    {
+            //        listBoxTests.Items.Add(t);// Вывод данных в лист бокс
+            //    }
+            //}
 
         }
 
@@ -197,9 +217,12 @@ namespace TestDesignerProject
 
         private void TestForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            using (FileStream fs = new FileStream(@"Tests.xml", FileMode.OpenOrCreate))
+            foreach (var item in tests.TestsList)
             {
-                formatter.Serialize(fs, tests);
+                using (FileStream fs = new FileStream(item.TestName + ".xml", FileMode.OpenOrCreate))
+                {
+                    formatterTest.Serialize(fs, item);
+                }
             }
         }
     }
