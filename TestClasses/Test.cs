@@ -7,6 +7,7 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using System.Xml;
+using System.IO;
 
 namespace Xml2CSharp
 {
@@ -85,33 +86,7 @@ namespace Xml2CSharp
         [XmlElement(ElementName = "QuestionBlock")]
         public List<QuestionBlock> QuestionBlocks { get; set; }
 
-        public void ReaderTest(XmlTextReader reader)
-        {
-            while(reader.Read())
-            {
-                if(reader.NodeType==XmlNodeType.Element)
-                {
-
-                    switch(reader.Name)
-                    {
-                        case "TestName":
-                            reader.Read();
-                            this.TestName = reader.Value;
-                            break;
-
-                        case "QuestionBlock":
-                            reader.Read();
-
-
-                            break;
-                        default:
-                            break;
-                    }
-
-                }
-                        
-            }
-        }
+       
 
         public override string ToString()
         {
