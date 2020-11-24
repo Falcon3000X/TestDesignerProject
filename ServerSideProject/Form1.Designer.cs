@@ -45,15 +45,21 @@ namespace ServerSideProject
             this.label6 = new System.Windows.Forms.Label();
             this.listBoxTests = new System.Windows.Forms.ListBox();
             this.groupBoxUser = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBoxUserLogin = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxUserLogin = new System.Windows.Forms.TextBox();
+            this.buttonConfirmNewUser = new System.Windows.Forms.Button();
+            this.groupBoxGroup = new System.Windows.Forms.GroupBox();
+            this.buttonConfirmNewGroup = new System.Windows.Forms.Button();
+            this.listBoxGroupTests = new System.Windows.Forms.ListBox();
+            this.listBoxGroupUsers = new System.Windows.Forms.ListBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBoxMenu.SuspendLayout();
             this.groupBoxUser.SuspendLayout();
+            this.groupBoxGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonAddUser
@@ -168,6 +174,8 @@ namespace ServerSideProject
             this.labelUser.Size = new System.Drawing.Size(83, 32);
             this.labelUser.TabIndex = 8;
             this.labelUser.Text = "<---";
+            this.labelUser.MouseEnter += new System.EventHandler(this.labelUser_MouseEnter);
+            this.labelUser.MouseLeave += new System.EventHandler(this.labelUser_MouseLeave);
             // 
             // labelTest
             // 
@@ -178,6 +186,8 @@ namespace ServerSideProject
             this.labelTest.Size = new System.Drawing.Size(83, 32);
             this.labelTest.TabIndex = 14;
             this.labelTest.Text = "--->";
+            this.labelTest.MouseEnter += new System.EventHandler(this.labelTest_MouseEnter);
+            this.labelTest.MouseLeave += new System.EventHandler(this.labelTest_MouseLeave);
             // 
             // buttonTestToGroup
             // 
@@ -214,40 +224,24 @@ namespace ServerSideProject
             this.groupBoxUser.Controls.Add(this.textBox1);
             this.groupBoxUser.Controls.Add(this.label4);
             this.groupBoxUser.Controls.Add(this.textBoxUserLogin);
-            this.groupBoxUser.Controls.Add(this.button2);
+            this.groupBoxUser.Controls.Add(this.buttonConfirmNewUser);
             this.groupBoxUser.Enabled = false;
-            this.groupBoxUser.Location = new System.Drawing.Point(94, 202);
+            this.groupBoxUser.Location = new System.Drawing.Point(35, 308);
             this.groupBoxUser.Name = "groupBoxUser";
             this.groupBoxUser.Size = new System.Drawing.Size(210, 207);
             this.groupBoxUser.TabIndex = 15;
             this.groupBoxUser.TabStop = false;
             this.groupBoxUser.Text = "User";
             // 
-            // button2
+            // checkBox1
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(115, 174);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Confirm";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // textBoxUserLogin
-            // 
-            this.textBoxUserLogin.Location = new System.Drawing.Point(59, 44);
-            this.textBoxUserLogin.Name = "textBoxUserLogin";
-            this.textBoxUserLogin.Size = new System.Drawing.Size(141, 20);
-            this.textBoxUserLogin.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 47);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Login:";
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(145, 120);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(55, 17);
+            this.checkBox1.TabIndex = 5;
+            this.checkBox1.Text = "Admin";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -265,24 +259,88 @@ namespace ServerSideProject
             this.textBox1.Size = new System.Drawing.Size(125, 20);
             this.textBox1.TabIndex = 3;
             // 
-            // checkBox1
+            // label4
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(145, 120);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(55, 17);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "Admin";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 47);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Login:";
             // 
-            // groupBox1
+            // textBoxUserLogin
             // 
-            this.groupBox1.Location = new System.Drawing.Point(494, 346);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
-            this.groupBox1.TabIndex = 16;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.textBoxUserLogin.Location = new System.Drawing.Point(59, 44);
+            this.textBoxUserLogin.Name = "textBoxUserLogin";
+            this.textBoxUserLogin.Size = new System.Drawing.Size(141, 20);
+            this.textBoxUserLogin.TabIndex = 1;
+            // 
+            // buttonConfirmNewUser
+            // 
+            this.buttonConfirmNewUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonConfirmNewUser.Location = new System.Drawing.Point(115, 174);
+            this.buttonConfirmNewUser.Name = "buttonConfirmNewUser";
+            this.buttonConfirmNewUser.Size = new System.Drawing.Size(85, 23);
+            this.buttonConfirmNewUser.TabIndex = 0;
+            this.buttonConfirmNewUser.Text = "Confirm";
+            this.buttonConfirmNewUser.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxGroup
+            // 
+            this.groupBoxGroup.Controls.Add(this.buttonConfirmNewGroup);
+            this.groupBoxGroup.Controls.Add(this.listBoxGroupTests);
+            this.groupBoxGroup.Controls.Add(this.listBoxGroupUsers);
+            this.groupBoxGroup.Controls.Add(this.textBox2);
+            this.groupBoxGroup.Controls.Add(this.label7);
+            this.groupBoxGroup.Enabled = false;
+            this.groupBoxGroup.Location = new System.Drawing.Point(358, 308);
+            this.groupBoxGroup.Name = "groupBoxGroup";
+            this.groupBoxGroup.Size = new System.Drawing.Size(403, 243);
+            this.groupBoxGroup.TabIndex = 16;
+            this.groupBoxGroup.TabStop = false;
+            this.groupBoxGroup.Text = "Group";
+            // 
+            // buttonConfirmNewGroup
+            // 
+            this.buttonConfirmNewGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonConfirmNewGroup.Location = new System.Drawing.Point(270, 208);
+            this.buttonConfirmNewGroup.Name = "buttonConfirmNewGroup";
+            this.buttonConfirmNewGroup.Size = new System.Drawing.Size(120, 23);
+            this.buttonConfirmNewGroup.TabIndex = 6;
+            this.buttonConfirmNewGroup.Text = "Confirm";
+            this.buttonConfirmNewGroup.UseVisualStyleBackColor = true;
+            // 
+            // listBoxGroupTests
+            // 
+            this.listBoxGroupTests.FormattingEnabled = true;
+            this.listBoxGroupTests.Location = new System.Drawing.Point(24, 97);
+            this.listBoxGroupTests.Name = "listBoxGroupTests";
+            this.listBoxGroupTests.Size = new System.Drawing.Size(120, 134);
+            this.listBoxGroupTests.TabIndex = 3;
+            // 
+            // listBoxGroupUsers
+            // 
+            this.listBoxGroupUsers.FormattingEnabled = true;
+            this.listBoxGroupUsers.Location = new System.Drawing.Point(270, 19);
+            this.listBoxGroupUsers.Name = "listBoxGroupUsers";
+            this.listBoxGroupUsers.Size = new System.Drawing.Size(120, 173);
+            this.listBoxGroupUsers.TabIndex = 2;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(95, 44);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(112, 20);
+            this.textBox2.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(21, 47);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Group name:";
             // 
             // Form1
             // 
@@ -290,7 +348,7 @@ namespace ServerSideProject
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1125, 560);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxGroup);
             this.Controls.Add(this.groupBoxUser);
             this.Controls.Add(this.labelTest);
             this.Controls.Add(this.buttonTestToGroup);
@@ -309,6 +367,8 @@ namespace ServerSideProject
             this.groupBoxMenu.ResumeLayout(false);
             this.groupBoxUser.ResumeLayout(false);
             this.groupBoxUser.PerformLayout();
+            this.groupBoxGroup.ResumeLayout(false);
+            this.groupBoxGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,9 +396,14 @@ namespace ServerSideProject
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxUserLogin;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonConfirmNewUser;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxGroup;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListBox listBoxGroupTests;
+        private System.Windows.Forms.ListBox listBoxGroupUsers;
+        private System.Windows.Forms.Button buttonConfirmNewGroup;
     }
 }
 

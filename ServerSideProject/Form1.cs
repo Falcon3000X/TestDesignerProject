@@ -23,17 +23,42 @@ namespace ServerSideProject
 
         private void buttonAddUser_Click(object sender, EventArgs e)
         {
-
+            groupBoxUser.Enabled = true;
         }
 
         private void buttonAddGroup_Click(object sender, EventArgs e)
         {
-
+            groupBoxGroup.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
         }
+
+        #region SugarCode
+        private void labelTest_MouseEnter(object sender, EventArgs e)
+        {
+            labelTest.ForeColor = Color.LightGreen;
+          
+        }
+
+        private void labelTest_MouseLeave(object sender, EventArgs e)
+        {
+            labelTest.ForeColor = Color.Black;
+         
+        }
+
+        private void labelUser_MouseLeave(object sender, EventArgs e)
+        {
+            labelUser.ForeColor = Color.Black;
+        }
+
+        private void labelUser_MouseEnter(object sender, EventArgs e)
+        {
+            labelUser.ForeColor = Color.LightGreen;
+        }
+
+        #endregion
     }
 }

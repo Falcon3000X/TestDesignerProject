@@ -13,8 +13,14 @@ namespace Xml2CSharp
     {
         [XmlElement(ElementName = "GroupName")]
         public string GroupName { get; set; }
+
+        
         [XmlElement(ElementName = "Users")]
         public List<User> Users { get; set; }
+        
+        
+        [XmlElement(ElementName ="Tests")]
+        public List<Test> Tests { get; set; }
     }
 
 }
