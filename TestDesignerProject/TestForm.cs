@@ -19,32 +19,37 @@ namespace TestDesignerProject
     {
 
         Tests tests = new Tests();
+
         Test test = null;
+
+        XmlSerializer formatter = new XmlSerializer(typeof(Tests));// Форматтер для десериализации
+
+
         public TestForm()
         {
             InitializeComponent();
 
             textBoxQ2.Enabled = false;
             textBoxQ3.Enabled = false;
-           
 
-            XmlSerializer formatter = new XmlSerializer(typeof(Tests));
+            tests.TestsList = new List<Test>();// Выделение памяти
 
-            using (FileStream fs = new FileStream(@"Tests.xml", FileMode.OpenOrCreate))
+
+            using (FileStream fs = new FileStream(@"Tests.xml", FileMode.OpenOrCreate))// Запись елементов из файла в программу через десериализацию
             {
-                Tests tests = (Tests)formatter.Deserialize(fs);
+                tests = (Tests)formatter.Deserialize(fs);// Десериализация
 
                 foreach (Test t in tests.TestsList)
                 {
-                    listBoxTests.Items.Add(t);
+                    listBoxTests.Items.Add(t);// Вывод данных в лист бокс
                 }
             }
-
 
         }
 
         public void ReWriteTests()
         {
+
             listBoxTests.Items.Clear();
             listBoxQuestions.Items.Clear();
 
@@ -100,9 +105,11 @@ namespace TestDesignerProject
 
                 test.TestName = textBoxTestTitle.Text;// Присваиваем тесту имя из textBox
 
+                test.QuestionBlocks = new List<QuestionBlock>();
+
                 tests.TestsList.Add(test);// Добавляем этот тест в список всех тестов.
 
-                listBoxTests.Items.Add(test.TestName);// Добавляем название теста в список тестов в listBox
+                ReWriteTests();
             }
             else // Если же textBox пуст, то показываем ошибку ввода
             {
@@ -128,6 +135,8 @@ namespace TestDesignerProject
                     questionBlock.Q3 = textBoxQ3.Text;
 
                 test.QuestionBlocks.Add(questionBlock);
+
+
             }
             else
             {
@@ -185,5 +194,16 @@ namespace TestDesignerProject
 
             }
         }
+
+        private void TestForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            using (FileStream fs = new FileStream(@"Tests.xml", FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, tests);
+            }
+        }
     }
+
+
+
 }
