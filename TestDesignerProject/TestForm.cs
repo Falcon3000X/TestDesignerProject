@@ -29,22 +29,40 @@ namespace TestDesignerProject
             QuestionBlock questionBlock2 = new QuestionBlock() { Question = "5-2 = ?", TrueAnswer = "3", DifficultLevel = 1, Q1 = "18", Q2 = "1", Q3 = "3" };
 
             QuestionBlock questionBlock3 = new QuestionBlock() { Question = "5*2 = ?", TrueAnswer = "10", DifficultLevel = 1, Q1 = "10", Q2 = "5", Q3 = "4" };
-            QuestionBlock questionBlock4 = new QuestionBlock() { Question = "52-13 = ?", TrueAnswer = "39", DifficultLevel = 1, Q1 = "39", Q2 = "1", Q3 = "9" };
+            QuestionBlock questionBlock4 = new QuestionBlock() { Question = "52-13 = ?", TrueAnswer = "39", DifficultLevel = 1, Q1 = "39", Q2 = "1" };
             QuestionBlock questionBlock5 = new QuestionBlock() { Question = "10+10 = ?", TrueAnswer = "20", DifficultLevel = 1, Q1 = "11", Q2 = "20", Q3 = "13" };
 
             Test test = new Test() { TestName = "Test1" };
+                                   
             Test test1 = new Test() { TestName = "Test2" };
+
+            test.QuestionBlocks = new List<QuestionBlock>();
             test.QuestionBlocks.Add(questionBlock);
             test.QuestionBlocks.Add(questionBlock1);
             test.QuestionBlocks.Add(questionBlock2);
 
+            test1.QuestionBlocks = new List<QuestionBlock>();
             test1.QuestionBlocks.Add(questionBlock3);
             test1.QuestionBlocks.Add(questionBlock4);
             test1.QuestionBlocks.Add(questionBlock5);
 
+            tests.TestsList = new List<Test>();
+
             tests.TestsList.Add(test);
             tests.TestsList.Add(test1);
 
+            ReWriteTests();
+        }
+
+        public void ReWriteTests()
+        {
+            listBoxTests.Items.Clear();
+            listBoxQuestions.Items.Clear();
+
+            foreach (var item in tests.TestsList)
+            {
+                listBoxTests.Items.Add(item);
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -130,6 +148,8 @@ namespace TestDesignerProject
 
         private void listBoxTests_SelectedIndexChanged(object sender, EventArgs e)
         {
+            listBoxQuestions.Items.Clear();
+
             var t = listBoxTests.SelectedItem as Test; // Преобразуем елемент в класс
 
             test = t; // инициализируем класс test
@@ -153,9 +173,27 @@ namespace TestDesignerProject
 
                 comboBoxGrade.Text = quest.DifficultLevel.ToString();
 
-                textBoxQ1.Text = quest.Q1;
-                textBoxQ2.Text = quest.Q2;
-                textBoxQ3.Text = quest.Q3;
+                if (quest.Q2 != null)
+                {
+                    textBoxQ2.Enabled = true;
+                    textBoxQ1.Text = quest.Q1;
+                    textBoxQ2.Text = quest.Q2;
+                }
+
+                if (quest.Q3 != null)
+                {
+                    textBoxQ3.Enabled = true;
+                    textBoxQ1.Text = quest.Q1;
+                    textBoxQ2.Text = quest.Q2;
+                    textBoxQ3.Text = quest.Q3;
+                }
+
+                if (quest.Q3 == null)
+                {
+                    textBoxQ3.Enabled = false;
+                    textBoxQ3.Text = "";
+                }
+
             }
         }
     }
