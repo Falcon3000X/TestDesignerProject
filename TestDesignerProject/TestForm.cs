@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using TestDesignerProject;
 using Xml2CSharp;
 
@@ -24,34 +25,65 @@ namespace TestDesignerProject
             textBoxQ2.Enabled = false;
             textBoxQ3.Enabled = false;
 
-            QuestionBlock questionBlock = new QuestionBlock() { Question = "2+2 = ?", TrueAnswer = "4", DifficultLevel = 1, Q1 = "4", Q2 = "5", Q3 = "3" };
-            QuestionBlock questionBlock1 = new QuestionBlock() { Question = "2+3 = ?", TrueAnswer = "5", DifficultLevel = 2, Q1 = "4", Q2 = "5", Q3 = "7" };
-            QuestionBlock questionBlock2 = new QuestionBlock() { Question = "5-2 = ?", TrueAnswer = "3", DifficultLevel = 1, Q1 = "18", Q2 = "1", Q3 = "3" };
+            //QuestionBlock questionBlock = new QuestionBlock() { Question = "2+2 = ?", TrueAnswer = "4", DifficultLevel = 1, Q1 = "4", Q2 = "5", Q3 = "3" };
+            //QuestionBlock questionBlock1 = new QuestionBlock() { Question = "2+3 = ?", TrueAnswer = "5", DifficultLevel = 2, Q1 = "4", Q2 = "5", Q3 = "7" };
+            //QuestionBlock questionBlock2 = new QuestionBlock() { Question = "5-2 = ?", TrueAnswer = "3", DifficultLevel = 1, Q1 = "18", Q2 = "1", Q3 = "3" };
 
-            QuestionBlock questionBlock3 = new QuestionBlock() { Question = "5*2 = ?", TrueAnswer = "10", DifficultLevel = 1, Q1 = "10", Q2 = "5", Q3 = "4" };
-            QuestionBlock questionBlock4 = new QuestionBlock() { Question = "52-13 = ?", TrueAnswer = "39", DifficultLevel = 1, Q1 = "39", Q2 = "1" };
-            QuestionBlock questionBlock5 = new QuestionBlock() { Question = "10+10 = ?", TrueAnswer = "20", DifficultLevel = 1, Q1 = "11", Q2 = "20", Q3 = "13" };
+            //QuestionBlock questionBlock3 = new QuestionBlock() { Question = "5*2 = ?", TrueAnswer = "10", DifficultLevel = 1, Q1 = "10", Q2 = "5", Q3 = "4" };
+            //QuestionBlock questionBlock4 = new QuestionBlock() { Question = "52-13 = ?", TrueAnswer = "39", DifficultLevel = 1, Q1 = "39", Q2 = "1" };
+            //QuestionBlock questionBlock5 = new QuestionBlock() { Question = "10+10 = ?", TrueAnswer = "20", DifficultLevel = 1, Q1 = "11", Q2 = "20", Q3 = "13" };
 
-            Test test = new Test() { TestName = "Test1" };
-                                   
-            Test test1 = new Test() { TestName = "Test2" };
+            //Test test = new Test() { TestName = "Test1" };
 
+            //Test test1 = new Test() { TestName = "Test2" };
+
+            //test.QuestionBlocks = new List<QuestionBlock>();
+            //test.QuestionBlocks.Add(questionBlock);
+            //test.QuestionBlocks.Add(questionBlock1);
+            //test.QuestionBlocks.Add(questionBlock2);
+
+            //test1.QuestionBlocks = new List<QuestionBlock>();
+            //test1.QuestionBlocks.Add(questionBlock3);
+            //test1.QuestionBlocks.Add(questionBlock4);
+            //test1.QuestionBlocks.Add(questionBlock5);
+
+            //tests.TestsList = new List<Test>();
+
+            //tests.TestsList.Add(test);
+            //tests.TestsList.Add(test1);
+
+            //ReWriteTests();
+            XDocument xDocument = XDocument.Load(@"Questions.xml");
+
+            var quests = xDocument.Element("Questions").Elements("QuestionBlock").Select(x => new
+            {
+                Question = x.Element("Question").Value,
+                TrueAnwer = x.Element("TrueAnswer").Value,
+                DifficultLevel = x.Element("DifficultLevel").Value,
+                Q1 = x.Element("Q1").Value,
+                Q2 = x.Element("Q2").Value,
+                Q3 = x.Element("Q3").Value
+            }).ToList();
+            Test test = new Test();
             test.QuestionBlocks = new List<QuestionBlock>();
-            test.QuestionBlocks.Add(questionBlock);
-            test.QuestionBlocks.Add(questionBlock1);
-            test.QuestionBlocks.Add(questionBlock2);
 
-            test1.QuestionBlocks = new List<QuestionBlock>();
-            test1.QuestionBlocks.Add(questionBlock3);
-            test1.QuestionBlocks.Add(questionBlock4);
-            test1.QuestionBlocks.Add(questionBlock5);
+            foreach (var i in quests)
+            {
+                QuestionBlock questionBlock = new QuestionBlock();
+                questionBlock.Question = i.Question;
+                questionBlock.TrueAnswer = i.TrueAnwer;
+                questionBlock.DifficultLevel = int.Parse(i.DifficultLevel);
+                questionBlock.Q1 = i.Q1;
+                questionBlock.Q2 = i.Q2;
+                questionBlock.Q3 = i.Q3;
+                test.QuestionBlocks.Add(questionBlock);
+            }
 
-            tests.TestsList = new List<Test>();
+            foreach(var i in test.QuestionBlocks)
+            {
+                listBoxQuestions.Items.Add(i);
+            }
 
-            tests.TestsList.Add(test);
-            tests.TestsList.Add(test1);
-
-            ReWriteTests();
         }
 
         public void ReWriteTests()

@@ -85,6 +85,34 @@ namespace Xml2CSharp
         [XmlElement(ElementName = "QuestionBlock")]
         public List<QuestionBlock> QuestionBlocks { get; set; }
 
+        public void ReaderTest(XmlTextReader reader)
+        {
+            while(reader.Read())
+            {
+                if(reader.NodeType==XmlNodeType.Element)
+                {
+
+                    switch(reader.Name)
+                    {
+                        case "TestName":
+                            reader.Read();
+                            this.TestName = reader.Value;
+                            break;
+
+                        case "QuestionBlock":
+                            reader.Read();
+
+
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+                        
+            }
+        }
+
         public override string ToString()
         {
             return $"{TestName}";
