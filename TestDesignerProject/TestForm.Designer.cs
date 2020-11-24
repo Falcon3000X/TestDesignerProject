@@ -262,6 +262,7 @@ namespace TestDesignerProject
             this.listBoxQuestions.Name = "listBoxQuestions";
             this.listBoxQuestions.Size = new System.Drawing.Size(160, 56);
             this.listBoxQuestions.TabIndex = 7;
+            this.listBoxQuestions.SelectedIndexChanged += new System.EventHandler(this.listBoxQuestions_SelectedIndexChanged);
             // 
             // buttonNewTest
             // 
