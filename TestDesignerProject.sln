@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerSideProject", "Server
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersGroupsLib", "UsersGroupsLib\UsersGroupsLib.csproj", "{5F7B8409-207A-46B4-8382-D58E03AFF034}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{D723EB9B-97BD-4DE1-BA83-1F0F58477344}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{5F7B8409-207A-46B4-8382-D58E03AFF034}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F7B8409-207A-46B4-8382-D58E03AFF034}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F7B8409-207A-46B4-8382-D58E03AFF034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D723EB9B-97BD-4DE1-BA83-1F0F58477344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D723EB9B-97BD-4DE1-BA83-1F0F58477344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D723EB9B-97BD-4DE1-BA83-1F0F58477344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D723EB9B-97BD-4DE1-BA83-1F0F58477344}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

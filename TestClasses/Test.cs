@@ -14,6 +14,8 @@ namespace Xml2CSharp
     [XmlRoot(ElementName = "QuestionBlock")]
     public class QuestionBlock
     {
+        public int ID { get; set; }
+
         [XmlElement(ElementName = "Question")]
         public string Question { get; set; }
         [XmlElement(ElementName = "TrueAnswer")]
@@ -26,6 +28,8 @@ namespace Xml2CSharp
         public string Q2 { get; set; }
         [XmlElement(ElementName = "Q3")]
         public string Q3 { get; set; }
+
+        public Test Test { get; set; }
 
         public override string ToString()
         {
@@ -81,12 +85,14 @@ namespace Xml2CSharp
     [XmlRoot(ElementName = "Test")]
     public class Test
     {
+        public int ID { get; set; }
+
         [XmlElement(ElementName = "TestName")]
         public string TestName { get; set; }
         [XmlElement(ElementName = "QuestionBlock")]
         public List<QuestionBlock> QuestionBlocks { get; set; }
 
-       
+
 
         public override string ToString()
         {
@@ -100,6 +106,23 @@ namespace Xml2CSharp
         [XmlElement(ElementName = "Test")]
         public List<Test> TestsList { get; set; }
     }
+
+    public class Answer
+    {
+        public int ID { get; set; }
+        public string Title { get; set; }
+        public bool IsRight { get; set; }
+        public int QuestionID { get; set; }
+    }
+
+    public class ApointTest
+    {
+        public int ID { get; set; }
+        public int TestID { get; set; }
+        public int GroupID { get; set; }
+
+    }
+
 
 }
 

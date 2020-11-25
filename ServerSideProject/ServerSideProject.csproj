@@ -80,6 +80,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{d723eb9b-97bd-4de1-ba83-1f0f58477344}</Project>
+      <Name>Repository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UsersGroupsLib\UsersGroupsLib.csproj">
       <Project>{5f7b8409-207a-46b4-8382-d58e03aff034}</Project>
       <Name>UsersGroupsLib</Name>
