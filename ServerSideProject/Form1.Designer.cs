@@ -284,6 +284,7 @@ namespace ServerSideProject
             this.buttonConfirmNewUser.TabIndex = 0;
             this.buttonConfirmNewUser.Text = "Confirm";
             this.buttonConfirmNewUser.UseVisualStyleBackColor = true;
+            this.buttonConfirmNewUser.Click += new System.EventHandler(this.buttonConfirmNewUser_Click);
             // 
             // groupBoxGroup
             // 

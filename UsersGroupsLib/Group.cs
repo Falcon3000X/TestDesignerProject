@@ -8,19 +8,14 @@ using System.Xml.Serialization;
 using System.Collections.Generic;
 namespace Xml2CSharp
 {
-    [XmlRoot(ElementName = "Group")]
     public class Group
     {
-        [XmlElement(ElementName = "GroupName")]
+        public int ID { get; set; }
+
         public string GroupName { get; set; }
 
-        
-        [XmlElement(ElementName = "Users")]
         public List<User> Users { get; set; }
-        
-        
-        [XmlElement(ElementName ="Tests")]
-        public List<Test> Tests { get; set; }
+
     }
 
 }

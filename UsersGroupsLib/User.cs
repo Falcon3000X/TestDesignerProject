@@ -8,15 +8,18 @@ using System.Xml.Serialization;
 using System.Collections.Generic;
 namespace Xml2CSharp
 {
-	[XmlRoot(ElementName = "User")]
-	public class User
-	{
-		[XmlElement(ElementName = "Login")]
-		public string Login { get; set; }
-		[XmlElement(ElementName = "Password")]
-		public string Password { get; set; }
-		[XmlElement(ElementName = "IsAdmin")]
-		public bool IsAdmin { get; set; }
-	}
+
+    public class User
+    {
+        public int ID { get; set; }
+
+        public string Login { get; set; }
+
+        public string Password { get; set; }
+
+        public bool IsAdmin { get; set; }
+
+        public Group Group { get; set; }
+    }
 
 }

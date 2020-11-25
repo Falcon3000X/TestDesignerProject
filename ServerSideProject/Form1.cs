@@ -19,6 +19,21 @@ namespace ServerSideProject
         public Form1()
         {
             InitializeComponent();
+
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
 
         private void buttonAddUser_Click(object sender, EventArgs e)
@@ -60,5 +75,10 @@ namespace ServerSideProject
         }
 
         #endregion
+
+        private void buttonConfirmNewUser_Click(object sender, EventArgs e)
+        {
+            groupBoxUser.Enabled = false;
+        }
     }
 }
