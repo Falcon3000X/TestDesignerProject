@@ -20,6 +20,11 @@ namespace Xml2CSharp
         public bool IsAdmin { get; set; }
 
         public Group Group { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Login}";
+        }
     }
 
 }

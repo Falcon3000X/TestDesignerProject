@@ -45,9 +45,9 @@ namespace ServerSideProject
             this.label6 = new System.Windows.Forms.Label();
             this.listBoxTests = new System.Windows.Forms.ListBox();
             this.groupBoxUser = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBoxAdmin = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxUserPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxUserLogin = new System.Windows.Forms.TextBox();
             this.buttonConfirmNewUser = new System.Windows.Forms.Button();
@@ -219,9 +219,9 @@ namespace ServerSideProject
             // 
             // groupBoxUser
             // 
-            this.groupBoxUser.Controls.Add(this.checkBox1);
+            this.groupBoxUser.Controls.Add(this.checkBoxAdmin);
             this.groupBoxUser.Controls.Add(this.label5);
-            this.groupBoxUser.Controls.Add(this.textBox1);
+            this.groupBoxUser.Controls.Add(this.textBoxUserPassword);
             this.groupBoxUser.Controls.Add(this.label4);
             this.groupBoxUser.Controls.Add(this.textBoxUserLogin);
             this.groupBoxUser.Controls.Add(this.buttonConfirmNewUser);
@@ -233,15 +233,15 @@ namespace ServerSideProject
             this.groupBoxUser.TabStop = false;
             this.groupBoxUser.Text = "User";
             // 
-            // checkBox1
+            // checkBoxAdmin
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(145, 120);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(55, 17);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "Admin";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxAdmin.AutoSize = true;
+            this.checkBoxAdmin.Location = new System.Drawing.Point(145, 120);
+            this.checkBoxAdmin.Name = "checkBoxAdmin";
+            this.checkBoxAdmin.Size = new System.Drawing.Size(55, 17);
+            this.checkBoxAdmin.TabIndex = 5;
+            this.checkBoxAdmin.Text = "Admin";
+            this.checkBoxAdmin.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -252,12 +252,12 @@ namespace ServerSideProject
             this.label5.TabIndex = 4;
             this.label5.Text = "Password:";
             // 
-            // textBox1
+            // textBoxUserPassword
             // 
-            this.textBox1.Location = new System.Drawing.Point(75, 81);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 20);
-            this.textBox1.TabIndex = 3;
+            this.textBoxUserPassword.Location = new System.Drawing.Point(75, 81);
+            this.textBoxUserPassword.Name = "textBoxUserPassword";
+            this.textBoxUserPassword.Size = new System.Drawing.Size(125, 20);
+            this.textBoxUserPassword.TabIndex = 3;
             // 
             // label4
             // 
@@ -394,11 +394,11 @@ namespace ServerSideProject
         private System.Windows.Forms.ListBox listBoxTests;
         private System.Windows.Forms.GroupBox groupBoxUser;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxUserPassword;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxUserLogin;
         private System.Windows.Forms.Button buttonConfirmNewUser;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBoxAdmin;
         private System.Windows.Forms.GroupBox groupBoxGroup;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label7;
